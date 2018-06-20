@@ -1,0 +1,22 @@
+{
+  "name": "dropwizard-demo-slides",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/howard/dropwizard-demo.git"
+  },
+  "author": "Chris Ortner <chris@codexfons.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/howard/dropwizard-demo/issues"
+  },
+  "homepage": "https://github.com/howard/dropwizard-demo#readme",
+  "dependencies": {
+    "reveal.js": "^3.3.0"
+  }
+}

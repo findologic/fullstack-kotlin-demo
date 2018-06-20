@@ -1,0 +1,51 @@
+/**
+ * FINDOLOGIC theme for reveal.js.
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: #eee;
+$findorange: #f29d00;
+
+$mainColor: #111;
+$headingColor: $findorange;
+
+$mainFontSize: 38px;
+$mainFont: 'Fira Sans', Helvetica, sans-serif;
+$headingFont: 'Fira Sans', Helvetica, sans-serif;
+$headingTextShadow: none;
+$headingLetterSpacing: normal;
+$headingTextTransform: uppercase;
+$headingFontWeight: 600;
+$linkColor: $findorange;
+$linkColorHover: lighten( $linkColor, 15% );
+$selectionBackgroundColor: lighten( $linkColor, 25% );
+
+$heading1Size: 2.5em;
+$heading2Size: 1.6em;
+$heading3Size: 1.3em;
+$heading4Size: 1.0em;
+
+section.has-light-background {
+	&, h1, h2, h3, h4, h5, h6 {
+		color: #222;
+	}
+}
+
+.findologo {
+	position: fixed;
+	top: 2rem;
+	right: 2rem;
+	height: 4rem;
+}
+
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------

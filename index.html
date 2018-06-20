@@ -1,0 +1,339 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Kotlin Everywhere</title>
+        <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,300" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+        <link rel="stylesheet" href="node_modules/reveal.js/css/reveal.css">
+        <link rel="stylesheet" href="node_modules/reveal.js/lib/css/zenburn.css">
+        <link rel="stylesheet" href="theme/findologic.css">
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <h1>
+                        <img src="img/kotlin.png"> Everywhere
+                    </h1>
+                    <h4>Frontend - Backend - Android</h4>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Agenda</h2>
+
+                        <ul>
+                            <li>What is Kotlin?</li>
+                            <li>Why use it?</li>
+                            <li>Where things go wrong</li>
+                            <li>Tooling</li>
+                            <li>Example</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h3>Disclaimer</h3>
+                    </section>
+                </section>
+
+                <section>
+                    <section data-background="img/island.png">
+                        <h1>What is Kotlin?</h1>
+                    </section>
+
+                    <section>
+                        <h3>Buzzwords</h3>
+
+                        <ul>
+                            <li>Statically typed.</li>
+                            <li>Encourages functional programming style.</li>
+                            <li>Null-safety.</li>
+                            <li>Two-way compatible with Java.</li>
+                            <li>Extension methods.</li>
+                            <li>Compilation targets: JVM, JS, Android, machine code</li>
+                            <li>Developed by JetBrains.</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h3>Hello, World!</h3>
+
+                        <pre><code data-trim data-noescape>
+class Main {
+        public static void main(String args[]) {
+           System.out.println("Hello, World!");
+        }
+}</code></pre>
+
+                        <pre><code data-trim data-noescape>
+fun main(args: Array<String>) {
+    println("Hello, World!")
+}</code></pre>
+                    </section>
+
+                    <section>
+                        <h3>Functional</h3>
+
+                        <pre><code data-trim data-noescape>
+println ((1 until 100).take(20).map { when {
+    it % 3 == 0 && it % 5 == 0 -> "fizzbuzz"
+    it % 3 == 0 -> "fizz"
+    it % 5 == 0 -> "buzz"
+    else -> it.toString()
+}})</code></pre>
+                    </section>
+
+                    <section>
+                        <h3>Null-safety and immutability</h3>
+
+                        <blockquote>
+                            I call it my billion-dollar mistake. It was the invention of the null reference in 1965.
+                            <br>
+                            [...]
+                            <br>
+                            I couldn't resist the temptation to put in a null reference, simply because it was so easy
+                            to implement.
+                        </blockquote>
+                        <small>Tony Hoare, of quicksort fame</small>
+                    </section>
+
+                    <section>
+                        <h3>Null-safety and immutability</h3>
+
+                        <pre><code data-trim data-noescape>
+val notNullableImmutable: String = "Hello, World!"
+var nullableMutable: String? = null
+lateinit var nonNullableMutable: String
+
+val unsafeMessage: String? =
+        nullableMutable?.replace("World", "WebDevs")
+        // => null
+
+nullableMutable = notNullableMutable
+val safeMessage: String =
+        nullableMutable!!.replace("World", "WebDevs")
+        // => "Hello, WebDevs!"
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h3>Data classes</h3>
+
+                        <pre><code data-trim data-noescape>
+class Person {
+    private String name;
+
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+
+    @Override public boolean equals(Object o) {
+        return o instanceof Person
+            && name.equals(((Person) o).getName());
+    }
+
+    @Override public int hashCode() { return name.hashCode(); }
+}</code></pre>
+
+                        <pre><code data-trim data-noescape>
+data class Person(val name: String)</code></pre>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h1>Why use it?</h1>
+
+                        <img src="img/ketchup.jpg" style="max-height: 50vh;">
+                    </section>
+
+                    <section>
+                        <h3>Huge Ecosystem</h3>
+
+                        <ul>
+                            <li>Full access to the JVM ecosystem.</li>
+                            <li>Full access to the JS ecosystem.</li>
+                            <li>Primary (and best-supported) language for Android.</li>
+                            <li>Growing family of Kotlin-specialized libraries.</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h3>Productive coding</h3>
+
+                        <ul>
+                            <li>Type safety.</li>
+                            <li>Null safety.</li>
+                            <li>Intuitive API.</li>
+                            <li>Concise and expressive syntax.</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h3>...also</h3>
+
+                        <ul>
+                            <li>Excellent for implementing DSLs.</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h3>It's fun!</h3>
+
+                        <pre><code data-trim data-noescape>
+fun foobar() {
+    println("Get it? The keyword for declaring functions is 'fun'.")
+}</code></pre>
+                    </section>
+                </section>
+
+                <section>
+                    <section data-background="img/tools.jpg">
+                        <h1>Tooling</h1>
+                    </section>
+
+                    <section>
+                        <img src="img/intellij.png">
+                    </section>
+
+                    <section>
+                        <img src="img/gradle.png">
+                        <img src="img/maven.png">
+                    </section>
+
+                    <section>
+                        <img src="img/kodein.png">
+                    </section>
+                </section>
+
+                <section>
+                    <section data-background="img/wtf.png">
+                        <h1>Where things go wrong</h1>
+                    </section>
+
+                    <section>
+                        <h3>Gradle</h3>
+
+                        <ul>
+                            <li>Groovy-based.</li>
+                            <li>Extremely powerful tool.</li>
+                            <li class="fragment">...to shoot yourself in the foot.</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h3>Gradle</h3>
+
+                        <ul>
+                            <li>Tricky to combine Android project with others.</li>
+                            <li>IDE can build what CLI can't.</li>
+                            <li>CLI can build what Gradle can't.</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h3>JS target</h3>
+
+                        <ul>
+                            <li>Partial type erasure.</li>
+                            <li>In-browser debugging capabilities limited.</li>
+                            <li>Interesting bugs and corner cases.</li>
+                        </ul>
+
+                        <pre><code data-trim data-noescape>
+val people = JSON.parse(JSON.stringify(it.people)) as Array&lt;Person&gt;</code></pre>
+                    </section>
+
+                    <section>
+                        <h3>JS target</h3>
+
+                        <ul>
+                            <li>Familiarity with builtin JS types required.</li>
+                            <li>Risks of `dynamic` values.</li>
+                        </ul>
+                    </section>
+                </section>
+
+                <section>
+                    <section data-background="img/explosion.jpg">
+                        <h1>In practice</h1>
+                    </section>
+
+                    <section>
+                        <h3>API</h3>
+
+                        <ul>
+                            <li><a href="https://petstore.swagger.io/#/">API Explorer</a></li>
+                            <li><a href="https://converschig24.com/swagger.json">API Spec</a></li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h3>Try it</h3>
+
+                        <p>
+                            <a href="https://converschig24.com">
+                                converschig24.com
+                            </a>
+                        </p>
+                    </section>
+                </section>
+
+                <section>
+                    <h1>Conclusion</h1>
+                    <ul>
+                        <li>Great promise.</li>
+                        <li>Just not perfect yet for all targets.</li>
+                        <li>Give it some time.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h1>Resources</h1>
+                    <ul>
+                        <li>https://kotlinlang.org/docs/tutorials/javascript/kotlin-to-javascript/kotlin-to-javascript.html</li>
+                        <li>https://kotlinlang.org/docs/tutorials/kotlin-android.html</li>
+                        <li>https://kotlinlang.org/docs/tutorials/koans.html</li>
+                        <li>https://github.com/howard/full-stack-kotlin-demo</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <section class="last-slide" data-background="img/key_visual.png">
+                        <h1 class="fragment">Happy hacking!</h1>
+                    </section>
+                </section>
+            </div>
+        </div>
+
+        <img class="findologo" src="img/findologic.svg">
+
+        <script src="node_modules/reveal.js/lib/js/head.min.js"></script>
+        <script src="node_modules/reveal.js/js/reveal.js"></script>
+        <script>
+            Reveal.initialize({
+                history: true,
+                transition: 'convex',
+                backgroundTransition: 'fade',
+                dependencies: [
+                    {
+                        src: './node_modules/reveal.js/plugin/highlight/highlight.js',
+                        async: true,
+                        callback: function () {
+                            hljs.initHighlightingOnLoad();
+                        }
+                    },
+                    {
+                        src: './node_modules/reveal.js/plugin/zoom-js/zoom.js',
+                        async: true
+                    },
+                    {
+                        src: './node_modules/reveal.js/plugin/notes/notes.js',
+                        async: true
+                    }
+                ]
+            });
+        </script>
+    </body>
+</html>

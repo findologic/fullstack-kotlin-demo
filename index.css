@@ -1,0 +1,48 @@
+.dropwizard-logo, img {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+section[data-background] > h1 {
+    -webkit-text-stroke: 3px #fff;
+    text-shadow: 0 0 80px #111;
+}
+
+.reveal li {
+    padding-bottom: 1rem;
+}
+
+h3 img {
+    border: none !important;
+    box-shadow: none !important;
+    max-height: 11rem !important;
+    max-width: 11rem !important;
+    vertical-align: middle !important;
+}
+
+.last-slide ul {
+    font-size: 1.5rem;
+    list-style: none;
+    float: right;
+    max-width: 34rem;
+}
+
+.demo-section a::before {
+    font-family: FontAwesome, sans-serif;
+    content: '\f09b';
+}
+
+.last-slide a {
+    color: #111;
+}
+
+.languages-overview img {
+    zoom: 0.8;
+}
+
+.slide-background[data-background-hash] {
+    z-index: 100;
+}
+.findologo {
+    z-index: -1;
+}
