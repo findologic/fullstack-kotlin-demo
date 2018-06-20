@@ -65,6 +65,9 @@ fun pollLeaderboard(client: ClickerClient) {
 
     window.setInterval(fun () {
         client.getLeaderboard {
+            // Interestingly, when parsing an object containing an array as a field, the array looks like one, but
+            // doesn't have an iterator. Stringifying and parsing the array itself is a hacky but functional
+            // workaround.
             val people = JSON.parse(JSON.stringify(it.people)) as Array<Person>
 
             leaderboardContainer.innerHTML = people.joinToString("\n") {
