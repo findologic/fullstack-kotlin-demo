@@ -2,9 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Clicker</title>
 
     <style>
+        html, body {
+            font-family: 'Helvetica', 'Arial', sans-serif;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
         .hidden {
             display: none;
         }
@@ -12,19 +21,56 @@
         .visible {
             display: block;
         }
+
+        .clicks {
+            font-size: 4rem;
+            margin: 1rem;
+            text-align: center;
+            font-weight: bold;
+            min-height: 5rem;
+        }
+
+        .click-message {
+            text-align: center;
+            min-height: 1.5rem;
+        }
+
+        .do-click, .register {
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            border: 1px solid #fcb157;
+            padding: 1rem;
+            width: 80%;
+            font-size: 1.4rem;
+            font-weight: bold;
+            background-color: darkorange;
+            color: white;
+        }
+
+        .person-name {
+            width: 80%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 1rem;
+            border: 1px solid darkgrey;
+            padding: 0.5rem;
+            box-sizing: border-box;
+        }
     </style>
 </head>
 <body>
-    <h1>Clicker</h1>
+    <h1>FINDO-Clicker</h1>
 
-    <div class="setup">
+    <div class="setup hidden">
         <form>
             <input type="text" placeholder="Who are you?" class="person-name" required>
             <button class="register">Get clicking!</button>
         </form>
     </div>
 
-    <div class="clicker">
+    <div class="clicker hidden">
 
         <p class="clicks"></p>
         <p class="click-message"></p>

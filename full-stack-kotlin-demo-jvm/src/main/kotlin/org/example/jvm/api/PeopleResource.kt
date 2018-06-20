@@ -17,10 +17,13 @@ class PeopleResource: BaseResource() {
     @Path("/people")
     @Produces(MediaType.APPLICATION_JSON)
     fun createPerson(@QueryParam("name") name: String): Person {
-        val newPerson = Person(storage.people.size + 1, name)
-        storage.people[newPerson.id] = newPerson
-
-        return newPerson
+        return if (name !in storage.people) {
+            val newPerson = Person(storage.people.size + 1, name)
+            storage.people[newPerson.name] = newPerson
+            newPerson
+        } else {
+            storage.people[name]!!
+        }
     }
 
     @GET

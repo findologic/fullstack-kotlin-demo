@@ -12,7 +12,7 @@ import kotlin.dom.removeClass
 fun main(args: Array<String>) {
     console.log("Started.")
 
-    val client = ClickerClient("http://localhost:8888")
+    val client = ClickerClient("https://converschig24.com")
 
     toggleViewVisibility(false)
     bindEvents(client)

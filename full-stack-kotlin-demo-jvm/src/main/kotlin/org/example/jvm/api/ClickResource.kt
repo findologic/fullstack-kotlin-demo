@@ -21,6 +21,13 @@ class ClickResource: BaseResource() {
                 Message("Click?", 20),
                 Message("I hope your drink is still cold.", 15),
                 Message("I'm trapped in a click message factory - send help!", 5),
+                Message("What's the favorite type of shoe of a Java developer? A sprint boot.", 3),
+                Message("If you're happy and you know it syntax error", 3),
+                Message("Knock knock. - Race condition. - Who's there?", 3),
+                Message("I've got a really good UDP joke to tell you, but I don't know if you'll get it.", 3),
+                Message("Give me a <br>.", 3),
+                Message("A SQL statement walks into a bar and sees two tables. It approaches, and asks “may I join you?”", 3),
+                Message("An SEO expert walks into a bar, pub, liquor store, brewery, alcohol, beer, whiskey, vodka", 3),
                 Message("Secret message - don't tell anyone.", 1)
         )
         private val messageWeightSum = messages.sumBy { it.weight }
@@ -28,10 +35,10 @@ class ClickResource: BaseResource() {
         private fun getRandomMessage(): String {
             val absoluteTargetWeight = Math.random() * messageWeightSum
 
-            return messages.filter {
+            return messages.first {
                 val relativeTargetWeight = absoluteTargetWeight - it.weight
-            relativeTargetWeight > 0
-            }.first().text
+                relativeTargetWeight > 0
+            }.text
         }
     }
 
@@ -42,12 +49,12 @@ class ClickResource: BaseResource() {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     fun click(person: Person): ClickFeedback {
-        if (person.id !in storage.people) {
+        if (person.name !in storage.people) {
             throw NotFoundException("Person is unknown.")
         }
 
-        storage.people[person.id]!!.clicks++
+        storage.people[person.name]!!.clicks++
 
-        return ClickFeedback(storage.people[person.id]!!.clicks, getRandomMessage())
+        return ClickFeedback(storage.people[person.name]!!.clicks, getRandomMessage())
     }
 }
