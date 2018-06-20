@@ -1,0 +1,3 @@
+rootProject.name = 'full-stack-kotlin-demo'
+
+include 'full-stack-kotlin-demo-common', 'full-stack-kotlin-demo-jvm', 'full-stack-kotlin-demo-js'

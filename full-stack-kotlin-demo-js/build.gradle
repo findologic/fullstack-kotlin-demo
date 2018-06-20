@@ -1,0 +1,48 @@
+buildscript {
+    ext.kotlin_version = '1.2.41'
+
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+apply plugin: 'kotlin-platform-js'
+apply plugin: 'kotlin2js'
+
+repositories {
+    mavenCentral()
+}
+
+tasks {
+    compileKotlin2Js {
+        kotlinOptions {
+            outputFile = "${project.buildDir.path}/resources/main/js/${project.name}.js"
+            sourceMap = true
+            sourceMapEmbedSources = "always"
+            // If we were to use webpack or something, the following line would enable interop between JS and Kotlin.
+            // moduleKind = "commonjs"
+            moduleKind = "plain"
+            main = "call"
+            noStdlib = false
+        }
+    }
+
+    task unpackKotlinRuntime(type: Copy) {
+        from(zipTree("${projectDir}/lib/kotlin-stdlib-js.jar"), {
+            include('kotlin*.js')
+        })
+        into "${buildDir}/resources/main/js"
+
+        dependsOn classes
+    }
+
+    tasks.build.dependsOn(unpackKotlinRuntime)
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
+    expectedBy project(":full-stack-kotlin-demo-common")
+    testCompile "org.jetbrains.kotlin:kotlin-test-js:$kotlin_version"
+}
