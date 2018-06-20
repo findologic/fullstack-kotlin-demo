@@ -3,22 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <title>Clicker</title>
+
+    <style>
+        .hidden {
+            display: none;
+        }
+
+        .visible {
+            display: block;
+        }
+    </style>
 </head>
 <body>
     <h1>Clicker</h1>
 
     <div class="setup">
-
+        <form>
+            <input type="text" placeholder="Who are you?" class="person-name" required>
+            <button class="register">Get clicking!</button>
+        </form>
     </div>
 
     <div class="clicker">
 
         <p class="clicks"></p>
+        <p class="click-message"></p>
 
         <button class="do-click">Click!</button>
 
         <h2>Top clickers</h2>
-        <ul class="leaderboard"></ul>
+        <ol class="leaderboard"></ol>
     </div>
 
     <script src="/js/kotlin.js"></script>

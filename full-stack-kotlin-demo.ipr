@@ -17,38 +17,40 @@
         <counts>
           <entry key="gitignore" value="1" />
           <entry key="gitkeep" value="8" />
-          <entry key="gradle" value="2" />
-          <entry key="html" value="2" />
+          <entry key="gradle" value="3" />
+          <entry key="html" value="3" />
           <entry key="java" value="1" />
-          <entry key="js" value="2" />
+          <entry key="js" value="4" />
           <entry key="kjsm" value="1" />
-          <entry key="kt" value="12" />
+          <entry key="kt" value="20" />
+          <entry key="properties" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Groovy" value="2" />
-          <entry key="HTML" value="2" />
+          <entry key="Groovy" value="3" />
+          <entry key="HTML" value="3" />
           <entry key="JAVA" value="1" />
-          <entry key="JavaScript" value="2" />
+          <entry key="JavaScript" value="4" />
           <entry key="KJSM" value="1" />
-          <entry key="Kotlin" value="12" />
+          <entry key="Kotlin" value="20" />
           <entry key="PLAIN_TEXT" value="9" />
+          <entry key="Properties" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gitignore" value="25" />
-          <entry key="gradle" value="1705" />
-          <entry key="html" value="260" />
-          <entry key="kt" value="3601" />
+          <entry key="gradle" value="1709" />
+          <entry key="html" value="478" />
+          <entry key="kt" value="7072" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Groovy" value="1705" />
-          <entry key="HTML" value="260" />
-          <entry key="Kotlin" value="3601" />
+          <entry key="Groovy" value="1709" />
+          <entry key="HTML" value="478" />
+          <entry key="Kotlin" value="7072" />
           <entry key="PLAIN_TEXT" value="25" />
         </counts>
       </usages-collector>
@@ -618,6 +620,13 @@
       <SOURCES>
         <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-test/1.2.41/bfb1375d1caa812dfca00d82fe29c516e12d815b/kotlin-test-1.2.41-sources.jar!/" />
       </SOURCES>
+    </library>
+    <library name="Gradle: org.jetbrains.kotlinx:kotlinx-html-js:0.6.1">
+      <CLASSES>
+        <root url="file://$PROJECT_DIR$/Could not find org.jetbrains.kotlinx:kotlinx-html-js:0.6.1." />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
     </library>
     <library name="Gradle: org.jetbrains:annotations:13.0">
       <CLASSES>

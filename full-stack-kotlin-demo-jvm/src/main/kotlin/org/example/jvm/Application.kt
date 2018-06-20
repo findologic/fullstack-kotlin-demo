@@ -10,6 +10,9 @@ import org.eclipse.jetty.servlet.ServletContextHandler
 import org.eclipse.jetty.servlet.ServletHolder
 import org.glassfish.jersey.server.ResourceConfig
 import org.glassfish.jersey.servlet.ServletContainer
+import javax.ws.rs.container.ContainerRequestContext
+import javax.ws.rs.container.ContainerResponseContext
+import javax.ws.rs.container.ContainerResponseFilter
 import javax.ws.rs.core.Response
 import javax.ws.rs.ext.ContextResolver
 import javax.ws.rs.ext.ExceptionMapper
@@ -25,6 +28,12 @@ class Application : ResourceConfig() {
         })
 
         register(ExceptionMapper<Exception> { exception -> Response.serverError().entity(exception).build() })
+
+        register(ContainerResponseFilter { _, responseContext ->
+            responseContext!!.headers["Access-Control-Allow-Origin"] = listOf("*")
+            responseContext.headers["Access-Control-Allow-Methods"] = listOf("GET,POST,OPTIONS,HEAD")
+            responseContext.headers["Access-Control-Allow-Headers"] = listOf("Content-Type")
+        })
 
         packages("org.example.jvm.api")
     }

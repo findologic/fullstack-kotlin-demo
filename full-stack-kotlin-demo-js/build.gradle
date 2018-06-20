@@ -31,7 +31,7 @@ tasks {
 
     task unpackKotlinRuntime(type: Copy) {
         from(zipTree("${projectDir}/lib/kotlin-stdlib-js.jar"), {
-            include('kotlin*.js')
+            include('kotlin*.js*')
         })
         into "${buildDir}/resources/main/js"
 

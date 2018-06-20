@@ -13,6 +13,7 @@ class PeopleResource: BaseResource() {
 
     @POST
     @Path("/people")
+    @Produces(MediaType.APPLICATION_JSON)
     fun createPerson(@QueryParam("name") name: String): Person {
         val newPerson = Person(storage.people.size + 1, name)
         storage.people[newPerson.id] = newPerson
