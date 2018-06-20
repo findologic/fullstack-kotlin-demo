@@ -1,12 +1,14 @@
 package org.example.jvm.api
 
 import com.github.salomonbrys.kodein.instance
+import io.swagger.annotations.Api
 import org.example.common.ClickFeedback
 import org.example.common.Person
 import org.example.jvm.MemoryStorage
 import javax.ws.rs.*
 import javax.ws.rs.core.MediaType
 
+@Api
 @Path("/clicker")
 class ClickResource: BaseResource() {
     companion object {

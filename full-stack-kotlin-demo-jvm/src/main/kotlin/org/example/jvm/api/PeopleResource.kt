@@ -1,12 +1,14 @@
 package org.example.jvm.api
 
 import com.github.salomonbrys.kodein.instance
+import io.swagger.annotations.Api
 import org.example.common.Leaderboard
 import org.example.common.Person
 import org.example.jvm.MemoryStorage
 import javax.ws.rs.*
 import javax.ws.rs.core.MediaType
 
+@Api
 @Path("")
 class PeopleResource: BaseResource() {
     private val storage: MemoryStorage by injector.instance()

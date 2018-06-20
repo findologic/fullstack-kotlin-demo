@@ -5,6 +5,7 @@ import com.fasterxml.jackson.module.kotlin.KotlinModule
 import com.github.salomonbrys.kodein.Kodein
 import com.github.salomonbrys.kodein.bind
 import com.github.salomonbrys.kodein.singleton
+import io.swagger.jaxrs.listing.ApiListingResource
 import org.eclipse.jetty.server.Server
 import org.eclipse.jetty.servlet.ServletContextHandler
 import org.eclipse.jetty.servlet.ServletHolder
@@ -35,6 +36,7 @@ class Application : ResourceConfig() {
             responseContext.headers["Access-Control-Allow-Headers"] = listOf("Content-Type")
         })
 
+        packages("io.swagger.jaxrs.listing")
         packages("org.example.jvm.api")
     }
 

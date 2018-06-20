@@ -41,6 +41,7 @@ dependencies {
     compile "org.eclipse.jetty:jetty-servlet:9.4.0.v20161208"
     compile "org.eclipse.jetty:jetty-servlets:9.4.0.v20161208"
     compile "org.eclipse.jetty:jetty-server:9.4.0.v20161208"
+    compile "io.swagger:swagger-jersey2-jaxrs:1.5.20"
     expectedBy project(":full-stack-kotlin-demo-common")
     testCompile "junit:junit:4.12"
     testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
