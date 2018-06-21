@@ -17,17 +17,25 @@ class ClickResource: BaseResource() {
         private val messages: List<Message> = listOf(
                 Message("Click!", 90),
                 Message("Click.", 70),
-                Message("The burgers are coming.", 40),
                 Message("Click?", 20),
+                Message("We're hiring!", 15),
+                Message("The burgers are coming.", 10),
                 Message("I hope your drink is still cold.", 15),
                 Message("I'm trapped in a click message factory - send help!", 5),
-                Message("What's the favorite type of shoe of a Java developer? A sprint boot.", 3),
+                Message("What's the favorite type of shoe of a Java developer? A spring boot.", 3),
                 Message("If you're happy and you know it syntax error", 3),
                 Message("Knock knock. - Race condition. - Who's there?", 3),
                 Message("I've got a really good UDP joke to tell you, but I don't know if you'll get it.", 3),
                 Message("Give me a <br>.", 3),
                 Message("A SQL statement walks into a bar and sees two tables. It approaches, and asks “may I join you?”", 3),
                 Message("An SEO expert walks into a bar, pub, liquor store, brewery, alcohol, beer, whiskey, vodka", 3),
+                Message("OLO demands it!", 3),
+                Message("What do Antarctica and HTTP have in common? - They're both stateless", 3),
+                Message("She was sending me mixed signals, so I did a fourier analysis.", 3),
+                Message("Do you even shift, bro?", 3),
+                Message("Web Developers use caniuse.com , lawyers use canisue.com ", 3),
+                Message("If someone's camel is stolen, does the police consider it a camelCase?", 3),
+                Message("Are your fingers bleeding yet?", 2),
                 Message("Secret message - don't tell anyone.", 1)
         )
         private val messageWeightSum = messages.sumBy { it.weight }
