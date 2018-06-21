@@ -61,6 +61,11 @@
                         <h3>Hello, World!</h3>
 
                         <pre><code data-trim data-noescape>
+// JS
+console.log('Hello, World!');</code></pre>
+
+                        <pre><code data-trim data-noescape>
+// Java
 class Main {
         public static void main(String args[]) {
            System.out.println("Hello, World!");
@@ -68,6 +73,7 @@ class Main {
 }</code></pre>
 
                         <pre><code data-trim data-noescape>
+// Kotlin
 fun main(args: Array&lt;String&gt;) {
     println("Hello, World!")
 }</code></pre>
@@ -103,6 +109,34 @@ println ((1 until 100).take(20).map { when {
                         <h3>Null-safety and immutability</h3>
 
                         <pre><code data-trim data-noescape>
+// JS
+let message = 'Hello, World!'; // could also be null or undefined.
+
+// ...
+
+if (typeof message !== 'undefined') {
+    // Happy path
+} else {
+    // Special case handling and source of bugs
+}
+
+// ...
+const obj = {
+    method: function () { /* ... */ }
+};
+
+// There are no guarantees in this world.
+if (typeof obj === 'object' && typeof obj.method === 'function') {
+    obj.method();
+}
+</code></pre>
+                    </section>
+
+                    <section>
+                        <h3>Null-safety and immutability</h3>
+
+                        <pre><code data-trim data-noescape>
+// Kotlin
 val notNullableImmutable: String = "Hello, World!"
 var nullableMutable: String? = null
 lateinit var nonNullableMutable: String
@@ -122,22 +156,19 @@ val safeMessage: String =
                         <h3>Data classes</h3>
 
                         <pre><code data-trim data-noescape>
+// JS
 class Person {
-    private String name;
+    name = "foo"
+}
 
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
-
-    @Override public boolean equals(Object o) {
-        return o instanceof Person
-            && name.equals(((Person) o).getName());
-    }
-
-    @Override public int hashCode() { return name.hashCode(); }
-}</code></pre>
+const p = new Person();
+p.name = 'Hugo';</code></pre>
 
                         <pre><code data-trim data-noescape>
-data class Person(val name: String)</code></pre>
+// Kotlin
+data class Person(val name: String)
+
+val p = Person("Hugo");</code></pre>
                     </section>
                 </section>
 
@@ -203,6 +234,13 @@ fun foobar() {
                     </section>
 
                     <section>
+                        <h3>After build</h3>
+
+                        <img src="img/webpack.png" style="max-height:400px;">
+                        <img src="img/npm.svg">
+                    </section>
+
+                    <section>
                         <img src="img/kodein.png">
                     </section>
                 </section>
@@ -250,7 +288,7 @@ val people = JSON.parse(JSON.stringify(it.people)) as Array&lt;Person&gt;</code>
 
                         <ul>
                             <li>Familiarity with builtin JS types required.</li>
-                            <li>Risks of `dynamic` values.</li>
+                            <li>Risks of <code>dynamic</code> values.</li>
                         </ul>
                     </section>
                 </section>
@@ -278,6 +316,16 @@ val people = JSON.parse(JSON.stringify(it.people)) as Array&lt;Person&gt;</code>
                             </a>
                         </p>
                     </section>
+
+                    <section>
+                        <h3>Show me the code!</h3>
+
+                        <p>
+                            <a href="https://github.com/findologic/fullstack-kotlin-demo">
+                                findologic/fullstack-kotlin-demo
+                            </a>
+                        </p>
+                    </section>
                 </section>
 
                 <section>
@@ -292,10 +340,9 @@ val people = JSON.parse(JSON.stringify(it.people)) as Array&lt;Person&gt;</code>
                 <section>
                     <h1>Resources</h1>
                     <ul>
-                        <li>https://kotlinlang.org/docs/tutorials/javascript/kotlin-to-javascript/kotlin-to-javascript.html</li>
-                        <li>https://kotlinlang.org/docs/tutorials/kotlin-android.html</li>
-                        <li>https://kotlinlang.org/docs/tutorials/koans.html</li>
-                        <li>https://github.com/findologic/fullstack-kotlin-demo</li>
+                        <li><a href="https://kotlinlang.org/docs/tutorials/javascript/kotlin-to-javascript/kotlin-to-javascript.html">Kotlin-to-JS guide</a></li>
+                        <li><a href="https://kotlinlang.org/docs/tutorials/kotlin-android.html">Kotlin on Android docs</a></li>
+                        <li><a href="https://kotlinlang.org/docs/tutorials/koans.html">In-IDE Kotlin tutorial</a></li>
                     </ul>
                 </section>
 
